@@ -54,7 +54,7 @@ function pegarTime(nome) {
 }
 
 // ===============================
-// CALCULAR FORMA (ATUALIZADA)
+// CALCULAR FORMA (ATUALIZADA PARA BRASIL)
 // ===============================
 
 function calcularForma(forma) {
@@ -63,8 +63,8 @@ function calcularForma(forma) {
     forma.split(",").forEach(r => {
         if (r === "V") { pontos += 3; jogosValidos++ }
         else if (r === "E") { pontos += 1; jogosValidos++ }
-        else if (r === "D") { jogosValidos++ } // derrota = 0 pontos mas conta o jogo
-        // "N" ou qualquer outro caractere é ignorado
+        else if (r === "D") { jogosValidos++ } // derrota = 0 pontos, conta o jogo
+        // "N" ou outros caracteres ignorados
     })
     return jogosValidos > 0 ? pontos / (jogosValidos * 3) : 0
 }
@@ -112,27 +112,27 @@ function calcular() {
     let h2hFora = media(pegarNumeros(".golsForaDireto"))
 
     // ===============================
-    // GOLS ESPERADOS
+    // GOLS ESPERADOS AJUSTADOS PARA BRASIL
     // ===============================
     let mediaCasa =
-        (ataqueA * 0.35) +
-        ((1 - defesaB) * 0.15) +
-        (golsA * 0.25) +
-        (sofridosB * 0.10) +
-        (h2hCasa * 0.15)
+        (ataqueA * 0.35) +      // força ofensiva
+        ((1 - defesaB) * 0.10) +// defesa adversária menos peso
+        (golsA * 0.25) +        // últimos 5 jogos próprios
+        (sofridosB * 0.10) +    // últimos 5 jogos adversário
+        (h2hCasa * 0.10)        // confronto direto menor peso
 
     let mediaFora =
         (ataqueB * 0.35) +
-        ((1 - defesaA) * 0.15) +
+        ((1 - defesaA) * 0.10) +
         (golsB * 0.25) +
         (sofridosA * 0.10) +
-        (h2hFora * 0.15)
+        (h2hFora * 0.10)
 
     // ===============================
     // APLICAR FORMA RELATIVA
     // ===============================
-    mediaCasa *= (1 + (formaA - formaB) * 0.05)
-    mediaFora *= (1 + (formaB - formaA) * 0.05)
+    mediaCasa *= (1 + (formaA - formaB) * 0.06) // Brasil: peso ligeiramente maior
+    mediaFora *= (1 + (formaB - formaA) * 0.06)
 
     // ===============================
     // POISSON
