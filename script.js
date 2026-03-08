@@ -54,16 +54,19 @@ function pegarTime(nome) {
 }
 
 // ===============================
-// CALCULAR FORMA
+// CALCULAR FORMA (ATUALIZADA)
 // ===============================
 
 function calcularForma(forma) {
-    let p = 0
+    let pontos = 0
+    let jogosValidos = 0
     forma.split(",").forEach(r => {
-        if (r === "V") p += 3
-        if (r === "E") p += 1
+        if (r === "V") { pontos += 3; jogosValidos++ }
+        else if (r === "E") { pontos += 1; jogosValidos++ }
+        else if (r === "D") { jogosValidos++ } // derrota = 0 pontos mas conta o jogo
+        // "N" ou qualquer outro caractere é ignorado
     })
-    return p / 15
+    return jogosValidos > 0 ? pontos / (jogosValidos * 3) : 0
 }
 
 // ===============================
@@ -89,7 +92,7 @@ function calcular() {
     let defesaB = tB.gc
 
     // ===============================
-    // FORMA
+    // FORMA RELATIVA
     // ===============================
     let formaA = calcularForma(tA.forma)
     let formaB = calcularForma(tB.forma)
@@ -109,7 +112,7 @@ function calcular() {
     let h2hFora = media(pegarNumeros(".golsForaDireto"))
 
     // ===============================
-    // GOLS ESPERADOS (MODELO MELHOR)
+    // GOLS ESPERADOS
     // ===============================
     let mediaCasa =
         (ataqueA * 0.35) +
