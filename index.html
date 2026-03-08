@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <title>⚽ Liga Brasileirão - Analisador</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <h2>⚽ Brasileirão 2026</h2>
+
+    <!-- ANALISAR JOGO -->
+
+    <div class="card">
+
+        <h3>Analisar Partida</h3>
+
+        <input id="timeCasa" placeholder="Time Casa">
+        <input id="timeFora" placeholder="Time Visitante">
+
+        <br>
+
+        <div id="resultado"></div>
+
+    </div>
+
+    <!-- ================= MERCADO (ODDS) ================= -->
+    <div class="card">
+        <h3>📈 Odds do Mercado</h3>
+
+        <div class="mercado-grid">
+
+            <div>
+                <label>Vitória Casa</label>
+                <input type="number" id="mercadoCasa" step="0.01" placeholder="1.85">
+            </div>
+
+            <div>
+                <label>Empate</label>
+                <input type="number" id="mercadoEmpate" step="0.01" placeholder="3.40">
+            </div>
+
+            <div>
+                <label>Vitória Visitante</label>
+                <input type="number" id="mercadoVisitante" step="0.01" placeholder="4.20">
+            </div>
+
+            <div>
+                <label>Over 2.5</label>
+                <input type="number" id="mercadoOver" step="0.01" placeholder="2.00">
+            </div>
+
+            <div>
+                <label>Under 2.5</label>
+                <input type="number" id="mercadoUnder" step="0.01" placeholder="1.85">
+            </div>
+
+            <div>
+                <label>BTTS</label>
+                <input type="number" id="mercadoBTTS" step="0.01" placeholder="1.95">
+            </div>
+
+        </div>
+    </div>
+    <!-- TABELA DA LIGA -->
+
+    <table id="tabelaLiga">
+
+        <thead>
+            <tr>
+                <th>Rank</th>
+                <th>Time</th>
+                <th>Pts</th>
+                <th>PJ</th>
+                <th>V</th>
+                <th>E</th>
+                <th>D</th>
+                <th>GM</th>
+                <th>GC</th>
+                <th>SG</th>
+                <th>Últimos 5</th>
+            </tr>
+        </thead>
+
+        <tbody>
+
+            <tr class="timeRow">
+                <td>1</td>
+                <td class="time">Palmeiras</td>
+                <td class="pts">10</td>
+                <td>4</td>
+                <td>3</td>
+                <td>1</td>
+                <td>0</td>
+                <td class="gm">12</td>
+                <td class="gc">5</td>
+                <td>7</td>
+                <td class="forma">E,V,V,V,N</td>
+            </tr>
+
+            <tr class="timeRow">
+                <td>2</td>
+                <td class="time">São Paulo</td>
+                <td class="pts">10</td>
+                <td>4</td>
+                <td>3</td>
+                <td>1</td>
+                <td>0</td>
+                <td class="gm">6</td>
+                <td class="gc">2</td>
+                <td>4</td>
+                <td class="forma">V,E,V,V,N</td>
+            </tr>
+
+            <tr class="timeRow">
+                <td>3</td>
+                <td class="time">Corinthians</td>
+                <td class="pts">7</td>
+                <td>4</td>
+                <td>2</td>
+                <td>1</td>
+                <td>1</td>
+                <td class="gm">5</td>
+                <td class="gc">3</td>
+                <td>2</td>
+                <td class="forma">D,V,V,E,N</td>
+            </tr>
+
+            <tr class="timeRow">
+                <td>4</td>
+                <td class="time">Bahia</td>
+                <td class="pts">7</td>
+                <td>3</td>
+                <td>2</td>
+                <td>1</td>
+                <td>0</td>
+                <td class="gm">4</td>
+                <td class="gc">2</td>
+                <td>2</td>
+                <td class="forma">V,E,V,N,N</td>
+            </tr>
+
+            <tr class="timeRow">
+                <td>5</td>
+                <td class="time">Fluminense</td>
+                <td class="pts">7</td>
+                <td>4</td>
+                <td>2</td>
+                <td>1</td>
+                <td>1</td>
+                <td class="gm">5</td>
+                <td class="gc">4</td>
+                <td>1</td>
+                <td class="forma">V,E,V,D,N</td>
+            </tr>
+
+            <tr class="timeRow">
+                <td>6</td>
+                <td class="time">Athletico-PR</td>
+                <td class="pts">7</td>
+                <td>4</td>
+                <td>2</td>
+                <td>1</td>
+                <td>1</td>
+                <td class="gm">4</td>
+                <td class="gc">3</td>
+                <td>1</td>
+                <td class="forma">V,V,D,E,N</td>
+            </tr>
+
+            <tr class="timeRow">
+                <td>7</td>
+                <td class="time">Bragantino</td>
+                <td class="pts">7</td>
+                <td>4</td>
+                <td>2</td>
+                <td>1</td>
+                <td>1</td>
+                <td class="gm">3</td>
+                <td class="gc">3</td>
+                <td>0</td>
+                <td class="forma">V,V,D,E,N</td>
+            </tr>
+
+            <tr class="timeRow">
+                <td>8</td>
+                <td class="time">Grêmio</td>
+                <td class="pts">6</td>
+                <td>4</td>
+                <td>2</td>
+                <td>0</td>
+                <td>2</td>
+                <td class="gm">8</td>
+                <td class="gc">8</td>
+                <td>0</td>
+                <td class="forma">D,V,D,V,N</td>
+            </tr>
+
+            <tr class="timeRow">
+                <td>9</td>
+                <td class="time">Chapecoense</td>
+                <td class="pts">5</td>
+                <td>3</td>
+                <td>1</td>
+                <td>2</td>
+                <td>0</td>
+                <td class="gm">8</td>
+                <td class="gc">6</td>
+                <td>2</td>
+                <td class="forma">V,E,E,N,N</td>
+            </tr>
+
+            <tr class="timeRow">
+                <td>10</td>
+                <td class="time">Mirassol</td>
+                <td class="pts">5</td>
+                <td>3</td>
+                <td>1</td>
+                <td>2</td>
+                <td>0</td>
+                <td class="gm">6</td>
+                <td class="gc">5</td>
+                <td>1</td>
+                <td class="forma">V,E,E,N,N</td>
+            </tr>
+
+            <tr class="timeRow">
+                <td>11</td>
+                <td class="time">Flamengo</td>
+                <td class="pts">4</td>
+                <td>3</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td class="gm">4</td>
+                <td class="gc">4</td>
+                <td>0</td>
+                <td class="forma">D,E,V,N,N</td>
+            </tr>
+
+            <tr class="timeRow">
+                <td>12</td>
+                <td class="time">Coritiba</td>
+                <td class="pts">4</td>
+                <td>4</td>
+                <td>1</td>
+                <td>1</td>
+                <td>2</td>
+                <td class="gm">5</td>
+                <td class="gc">6</td>
+                <td>-1</td>
+                <td class="forma">D,V,E,D,N</td>
+            </tr>
+
+            <tr class="timeRow">
+                <td>13</td>
+                <td class="time">Santos</td>
+                <td class="pts">4</td>
+                <td>4</td>
+                <td>1</td>
+                <td>1</td>
+                <td>2</td>
+                <td class="gm">6</td>
+                <td class="gc">8</td>
+                <td>-2</td>
+                <td class="forma">D,E,D,V,N</td>
+            </tr>
+
+            <tr class="timeRow">
+                <td>14</td>
+                <td class="time">Botafogo</td>
+                <td class="pts">3</td>
+                <td>3</td>
+                <td>1</td>
+                <td>0</td>
+                <td>2</td>
+                <td class="gm">7</td>
+                <td class="gc">6</td>
+                <td>1</td>
+                <td class="forma">V,D,D,N,N</td>
+            </tr>
+
+            <tr class="timeRow">
+                <td>15</td>
+                <td class="time">EC Vitória</td>
+                <td class="pts">3</td>
+                <td>3</td>
+                <td>1</td>
+                <td>0</td>
+                <td>2</td>
+                <td class="gm">4</td>
+                <td class="gc">7</td>
+                <td>-3</td>
+                <td class="forma">V,D,D,N,N</td>
+            </tr>
+
+            <tr class="timeRow">
+                <td>16</td>
+                <td class="time">Remo</td>
+                <td class="pts">3</td>
+                <td>4</td>
+                <td>0</td>
+                <td>3</td>
+                <td>1</td>
+                <td class="gm">6</td>
+                <td class="gc">8</td>
+                <td>-2</td>
+                <td class="forma">D,E,E,E,N</td>
+            </tr>
+
+            <tr class="timeRow">
+                <td>17</td>
+                <td class="time">Atlético-MG</td>
+                <td class="pts">2</td>
+                <td>4</td>
+                <td>0</td>
+                <td>2</td>
+                <td>2</td>
+                <td class="gm">6</td>
+                <td class="gc">8</td>
+                <td>-2</td>
+                <td class="forma">E,D,E,D,N</td>
+            </tr>
+
+            <tr class="timeRow">
+                <td>18</td>
+                <td class="time">Internacional</td>
+                <td class="pts">2</td>
+                <td>4</td>
+                <td>0</td>
+                <td>2</td>
+                <td>2</td>
+                <td class="gm">3</td>
+                <td class="gc">6</td>
+                <td>-3</td>
+                <td class="forma">D,E,D,E,N</td>
+            </tr>
+
+            <tr class="timeRow">
+                <td>19</td>
+                <td class="time">Cruzeiro</td>
+                <td class="pts">2</td>
+                <td>4</td>
+                <td>0</td>
+                <td>2</td>
+                <td>2</td>
+                <td class="gm">4</td>
+                <td class="gc">9</td>
+                <td>-5</td>
+                <td class="forma">D,D,E,E,N</td>
+            </tr>
+
+            <tr class="timeRow">
+                <td>20</td>
+                <td class="time">Vasco</td>
+                <td class="pts">1</td>
+                <td>4</td>
+                <td>0</td>
+                <td>1</td>
+                <td>3</td>
+                <td class="gm">3</td>
+                <td class="gc">6</td>
+                <td>-3</td>
+                <td class="forma">D,E,D,D,N</td>
+            </tr>
+
+        </tbody>
+    </table>
+
+
+
+    <!-- ULTIMOS 5 JOGOS -->
+
+    <div class="card">
+
+        <div class="coluna">
+
+            <h3>Time A - Últimos 5</h3>
+
+            <table>
+                <tr>
+                    <th>Jogo</th>
+                    <th>Marcados</th>
+                    <th>Sofridos</th>
+                </tr>
+
+                <tr>
+                    <td>1</td>
+                    <td><input class="golsA"></td>
+                    <td><input class="golsSofridosA"></td>
+                </tr>
+
+                <tr>
+                    <td>2</td>
+                    <td><input class="golsA"></td>
+                    <td><input class="golsSofridosA"></td>
+                </tr>
+
+                <tr>
+                    <td>3</td>
+                    <td><input class="golsA"></td>
+                    <td><input class="golsSofridosA"></td>
+                </tr>
+
+                <tr>
+                    <td>4</td>
+                    <td><input class="golsA"></td>
+                    <td><input class="golsSofridosA"></td>
+                </tr>
+
+                <tr>
+                    <td>5</td>
+                    <td><input class="golsA"></td>
+                    <td><input class="golsSofridosA"></td>
+                </tr>
+
+            </table>
+
+        </div>
+
+        <div class="coluna">
+
+            <h3>Time B - Últimos 5</h3>
+
+            <table>
+                <tr>
+                    <th>Jogo</th>
+                    <th>Marcados</th>
+                    <th>Sofridos</th>
+                </tr>
+
+                <tr>
+                    <td>1</td>
+                    <td><input class="golsB"></td>
+                    <td><input class="golsSofridosB"></td>
+                </tr>
+
+                <tr>
+                    <td>2</td>
+                    <td><input class="golsB"></td>
+                    <td><input class="golsSofridosB"></td>
+                </tr>
+
+                <tr>
+                    <td>3</td>
+                    <td><input class="golsB"></td>
+                    <td><input class="golsSofridosB"></td>
+                </tr>
+
+                <tr>
+                    <td>4</td>
+                    <td><input class="golsB"></td>
+                    <td><input class="golsSofridosB"></td>
+                </tr>
+
+                <tr>
+                    <td>5</td>
+                    <td><input class="golsB"></td>
+                    <td><input class="golsSofridosB"></td>
+                </tr>
+
+            </table>
+
+        </div>
+
+        <div class="coluna">
+
+            <h3>Confronto Direto - Últimos 5</h3>
+
+            <table>
+                <tr>
+                    <th>Jogo</th>
+                    <th>Gols Casa</th>
+                    <th>Gols Visitante</th>
+                </tr>
+
+                <tr>
+                    <td>1</td>
+                    <td><input class="golsCasaDireto"></td>
+                    <td><input class="golsForaDireto"></td>
+                </tr>
+
+                <tr>
+                    <td>2</td>
+                    <td><input class="golsCasaDireto"></td>
+                    <td><input class="golsForaDireto"></td>
+                </tr>
+
+                <tr>
+                    <td>3</td>
+                    <td><input class="golsCasaDireto"></td>
+                    <td><input class="golsForaDireto"></td>
+                </tr>
+
+                <tr>
+                    <td>4</td>
+                    <td><input class="golsCasaDireto"></td>
+                    <td><input class="golsForaDireto"></td>
+                </tr>
+
+                <tr>
+                    <td>5</td>
+                    <td><input class="golsCasaDireto"></td>
+                    <td><input class="golsForaDireto"></td>
+                </tr>
+
+            </table>
+
+        </div>
+
+    </div>
+
+    <!-- BOTÕES -->
+
+    <div class="card botoes">
+
+        <button class="btn-calc" onclick="calcular()">Gerar Resultado</button>
+
+        <button class="btn-exemplo" onclick="preencherExemplo()">Preencher Exemplo</button>
+
+        <button class="btn-limpar" onclick="limpar()">Limpar</button>
+
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

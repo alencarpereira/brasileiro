@@ -1,0 +1,84 @@
+        body {
+            font-family: Arial;
+            background: #0f172a;
+            color: white;
+            text-align: center;
+        }
+
+        h2 {
+            margin-top: 20px;
+        }
+
+        table {
+            margin: auto;
+            border-collapse: collapse;
+            width: 90%;
+            background: #1e293b;
+            margin-bottom: 20px;
+        }
+
+        th,
+        td {
+            border: 1px solid #334155;
+            padding: 8px;
+        }
+
+        th {
+            background: #020617;
+        }
+
+        .card {
+            background: #1e293b;
+            padding: 20px;
+            margin: 20px auto;
+            width: 90%;
+            border-radius: 10px;
+        }
+
+        input {
+            padding: 6px;
+            width: 60px;
+        }
+
+        button {
+            padding: 12px;
+            margin: 10px;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .btn-calc {
+            background: #22c55e;
+        }
+
+        .btn-exemplo {
+            background: #3b82f6;
+            color: white;
+        }
+
+        .btn-limpar {
+            background: #ef4444;
+            color: white;
+        }
+
+        .coluna {
+            display: inline-block;
+            width: 45%;
+            vertical-align: top;
+        }
+
+        .mercado-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .tabela-jogos input {
+            width: 60px;
+        }
+
+        #resultado {
+            font-size: 20px;
+            margin-top: 10px;
+        }
